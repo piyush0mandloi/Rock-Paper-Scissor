@@ -1,0 +1,224 @@
+/* ── CSS Variables ─────────────────────────── */
+        :root {
+            --bg:        #0f0c1a;
+            --surface:   #1c1730;
+            --border:    #2e2650;
+            --accent:    #f5a623;
+            --accent2:   #e05cff;
+            --win:       #4cdc8b;
+            --lose:      #ff5f6d;
+            --draw:      #f5a623;
+            --text:      #f0eaf8;
+            --muted:     #8878a8;
+            --radius:    18px;
+            --shadow:    0 8px 40px rgba(0,0,0,0.55);
+        }
+ 
+        /* ── Reset & Base ──────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            background-image:
+                radial-gradient(ellipse 60% 50% at 20% 10%, rgba(229,92,255,.15) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 80% 90%, rgba(245,166,35,.12) 0%, transparent 65%);
+            font-family: 'Nunito', sans-serif;
+            color: var(--text);
+            padding: 2rem 1rem;
+        }
+ 
+        /* ── Card ──────────────────────────────────── */
+        .card {
+            width: 100%;
+            max-width: 800px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2.5rem 2rem 2rem;
+            animation: fadeUp .5s ease both;
+        }
+ 
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+ 
+        /* ── Header ────────────────────────────────── */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            margin-top: 20px;
+        }
+ 
+        .emoji-row {
+            font-size: 2.4rem;
+            letter-spacing: .15em;
+            line-height: 1;
+            margin-bottom: .5rem;
+        }
+ 
+        h1 {
+            font-family: 'Boogaloo', cursive;
+            font-size: 2.4rem;
+            letter-spacing: .04em;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+ 
+        .subtitle {
+            color: var(--muted);
+            font-size: .9rem;
+            margin-top: .4rem;
+        }
+ 
+        /* ── Divider ───────────────────────────────── */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 1.4rem 0;
+        }
+ 
+        /* ── Form ──────────────────────────────────── */
+        .form-label {
+            display: block;
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: .55rem;
+        }
+ 
+        .select-wrap {
+            position: relative;
+            margin-bottom: 1.2rem;
+        }
+ 
+        .select-wrap::after {
+            content: '▾';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            pointer-events: none;
+            font-size: 1rem;
+        }
+ 
+        select {
+            width: 100%;
+            padding: .85rem 2.5rem .85rem 1rem;
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            appearance: none;
+            cursor: pointer;
+            transition: border-color .2s, box-shadow .2s;
+            outline: none;
+        }
+ 
+        select:focus {
+            border-color: var(--accent2);
+            box-shadow: 0 0 0 3px rgba(229,92,255,.18);
+        }
+ 
+        select option { background: #1c1730; }
+ 
+        /* ── Button ────────────────────────────────── */
+        button[type="submit"] {
+            width: 100%;
+            padding: .9rem;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), #ff8c00);
+            color: #0f0c1a;
+            font-family: 'Boogaloo', cursive;
+            font-size: 1.25rem;
+            letter-spacing: .06em;
+            cursor: pointer;
+            transition: opacity .2s, transform .15s, box-shadow .2s;
+            box-shadow: 0 4px 20px rgba(245,166,35,.35);
+        }
+ 
+        button[type="submit"]:hover {
+            opacity: .92;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(245,166,35,.45);
+        }
+ 
+        button[type="submit"]:active { transform: translateY(0); }
+ 
+        /* ── Result Section ────────────────────────── */
+        .result-section {
+            margin-top: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+            margin-bottom: 20px;
+        }
+ 
+        .result-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: .75rem 1rem;
+        }
+ 
+        .result-row .label {
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+ 
+        .result-row .value {
+            font-family: 'Boogaloo', cursive;
+            font-size: 1.15rem;
+            letter-spacing: .05em;
+            color: var(--text);
+        }
+ 
+        /* ── Message Banner ────────────────────────── */
+        .message-banner {
+            margin-top: .4rem;
+            text-align: center;
+            padding: .9rem 1rem;
+            border-radius: 12px;
+            font-family: 'Boogaloo', cursive;
+            font-size: 1.45rem;
+            letter-spacing: .05em;
+            background: rgba(255,255,255,.04);
+            border: 1.5px solid var(--border);
+            color: var(--text);
+        }
+ 
+        /* dynamic outcome colours (add class via Jinja or JS) */
+        .message-banner.win  { border-color: var(--win);  color: var(--win);  background: rgba(76,220,139,.08); }
+        .message-banner.lose { border-color: var(--lose); color: var(--lose); background: rgba(255,95,109,.08); }
+        .message-banner.draw { border-color: var(--draw); color: var(--draw); background: rgba(245,166,35,.08); }
+ 
+        /* ── Footer ────────────────────────────────── */
+        footer {
+            margin-top: 1.8rem;
+            font-size: 1.78rem;
+            color: var(--muted);
+            text-align: center;
+            letter-spacing: .04em;
+        }

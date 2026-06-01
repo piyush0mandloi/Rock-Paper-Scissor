@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="card">
+        <!-- Header -->
+        <div class="header">
+            <div class="emoji-row">✊ 🖐️ ✌️</div>
+            <h1>Rock Paper Scissors</h1>
+            <p class="subtitle">Challenge the machine — can you outsmart it?</p>
+        </div>
+ 
+        <div class="divider"></div>
+ 
+        <!-- Form -->
+        <form method="POST">
+            <label class="form-label" for="guess">Your Weapon</label>
+            <div class="select-wrap">
+                <select name="guess" id="guess">
+                    <option value="rock">🪨  Rock</option>
+                    <option value="paper">📄  Paper</option>
+                    <option value="scissors">✂️  Scissors</option>
+                </select>
+            </div>
+            <button type="submit">Throw!</button>
+        </form>
+ 
+        <!-- Results (shown after POST; hide this block when values are empty) -->
+        <div class="result-section">
+            <div class="result-row">
+                <span class="label">Your Choice</span>
+                <span class="value">{{ user_choice }}</span>
+            </div>
+            <div class="result-row">
+                <span class="label">Computer's Choice</span>
+                <span class="value">{{ comp_choice }}</span>
+            </div>
+            <!-- Add win/lose/draw class to banner via your template logic -->
+            <div class="message-banner">{{ message }}</div>
+        </div>
+    </div>
+ 
+    <footer>Built with Python · Good luck, human 🤖</footer>
+</body>
+</html>
