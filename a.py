@@ -17,6 +17,7 @@ def home():
     message = ""
     user_input = ""
     comp_choice = ""
+    banner_class = ""
 
     if request.method == "POST":
         user_input = request.form["guess"]
@@ -24,16 +25,23 @@ def home():
 
         if user_input == comp_choice:
             message = "It's a Draw!"
+            banner_class = "draw"
+
         elif rules[user_input] == comp_choice:
             message = "You Win!"
+            banner_class = "win"
+
         else:
             message = "Computer Wins!"
+            banner_class = "lose"
+
 
     return render_template(
         "index.html",
         message=message,
         user_choice=user_input,
-        comp_choice=comp_choice
+        comp_choice=comp_choice,
+            banner_class=banner_class
     )
 
 
