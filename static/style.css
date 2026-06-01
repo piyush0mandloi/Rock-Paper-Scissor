@@ -53,7 +53,7 @@
         .header {
             text-align: center;
             margin-bottom: 2rem;
-            margin-top: 20px;
+            /* margin-top: 20px; */
         }
  
         .emoji-row {
@@ -260,7 +260,7 @@
         /* ── Footer ────────────────────────────────── */
         footer {
             margin-top: 1.8rem;
-            font-size: 1.78rem;
+            font-size: 1.18rem;
             color: var(--muted);
             text-align: center;
             letter-spacing: .04em;
