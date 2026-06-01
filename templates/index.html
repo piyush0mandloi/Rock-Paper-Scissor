@@ -18,6 +18,12 @@
         </div>
  
         <div class="divider"></div>
+
+        <div class="score-board">
+    <span>You: {{ user_score }}</span>
+    <span>Draws: {{ draw_score }}</span>
+    <span>CPU: {{ comp_score }}</span>
+</div>
  
         <!-- Form -->
         <form method="POST">
@@ -30,6 +36,7 @@
                 </select>
             </div>
             <button type="submit">Throw!</button>
+            <a href="{{url_for('reset')}}" class="reset-btn">Reset Scores</a>
         </form>
  
         <!-- Results (shown after POST; hide this block when values are empty) -->
